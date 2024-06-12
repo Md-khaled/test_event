@@ -49,9 +49,9 @@
                     </li>
 
                     <li class="sidebar-item {{menuActive(['admin.planList','admin.planCreate','admin.planEdit*'],3)}}">
-                        <a class="sidebar-link" href="{{ route('admin.planList')}}" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('admin.product-list')}}" aria-expanded="false">
                             <i class="fas fa-cubes text-success"></i>
-                            <span class="hide-menu">@lang('Plan List')</span>
+                            <span class="hide-menu">@lang('Product List')</span>
                         </a>
                     </li>
                 @endif

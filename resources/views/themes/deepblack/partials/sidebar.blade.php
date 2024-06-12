@@ -36,7 +36,7 @@
        </li>
 	   <li class="{{menuActive(['plan'])}}">
           <a href="{{route('plan')}}" class="sidebar-link">
-             <img src="{{asset($themeTrue.'img/icon/growth-graph.png')}}" alt="@lang('invest history')"/>@lang('Package')
+             <img src="{{asset($themeTrue.'img/icon/growth-graph.png')}}" alt="@lang('invest history')"/>@lang('Products')
           </a>
         </li>
 

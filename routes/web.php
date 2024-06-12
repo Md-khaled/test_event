@@ -73,6 +73,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
             Route::post('/purchase-plan', 'User\HomeController@purchasePlan')->name('purchase-plan');
 
 
+            // Route::get('invest-history', 'User\HomeController@investHistory')->name('invest-history');
+            Route::post('/order-product', 'User\OrderController@order')->name('order-product');
+
+
+
             Route::get('/referral', 'User\HomeController@referral')->name('referral');
             Route::get('/referral-bonus', 'User\HomeController@referralBonus')->name('referral.bonus');
             Route::get('/referral-bonus-search', 'User\HomeController@referralBonusSearch')->name('referral.bonus.search');
@@ -162,6 +167,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::put('/plan-edit/{id}', 'Admin\ManagePlanController@planUpdate')->name('planUpdate');
         Route::post('/plans-active', 'Admin\ManagePlanController@activeMultiple')->name('plans-active');
         Route::post('/plans-inactive', 'Admin\ManagePlanController@inActiveMultiple')->name('plans-inactive');
+        
+        
+        Route::get('/product-list', 'Admin\ProductController@productList')->name('product-list');
+        Route::get('/product-create', 'Admin\ProductController@productCreate')->name('product-create');
+        Route::post('/product-create', 'Admin\ProductController@productStore')->name('product-store');
 
 
         /* ====== Plugin =====*/

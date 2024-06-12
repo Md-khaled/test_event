@@ -8,6 +8,9 @@ use App\Models\Language;
 use App\Models\Template;
 use App\Models\ManagePlan;
 use App\Models\Subscriber;
+
+use App\Models\Product;
+
 use App\Http\Traits\Notify;
 use Illuminate\Http\Request;
 use App\Models\ContentDetails;
@@ -250,13 +253,15 @@ class FrontendController extends Controller
 
     public function planList()
     {
+        // $data = Product::get();
+
         if (auth()->user()) {
             $data['extend_blade'] = $this->theme . 'layouts.user';
         } else {
             $data['extend_blade'] = $this->theme . 'layouts.app';
         }
 
-        $data['plans'] = ManagePlan::where('status', 1)->get();
+        $data['products'] = Product::get();
 
         $templateSection = ['investment', 'calculate-profit', 'faq', 'we-accept', 'deposit-withdraw', 'why-chose-us', 'news-letter'];
         $data['templates'] = Template::templateMedia()->whereIn('section_name', $templateSection)->get()->groupBy('section_name');
