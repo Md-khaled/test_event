@@ -30,6 +30,9 @@ class OrderController extends Controller
         $user = auth()->user();
         $data['customer_id'] = $user->id;
 
+        $point = Product::where('id', $request->product_id)->first()->value('point');
+        $data['point'] = $point*($request->quantity);
+
         ProductOrder::create($data);
         // dd($data);
 

@@ -18,6 +18,7 @@ use App\Models\MoneyTransfer;
 use App\Models\PayoutLog;
 use App\Models\PayoutMethod;
 use App\Models\PayoutSetting;
+use App\Models\ProductOrder;
 use App\Models\Ranking;
 use App\Models\Ticket;
 use App\Models\Transaction;
@@ -64,6 +65,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $data['walletBalance'] = getAmount($this->user->balance);
         $data['interestBalance'] = getAmount($this->user->interest_balance);
         $data['totalDeposit'] = getAmount($this->user->funds()->whereNull('plan_id')->whereStatus(1)->sum('amount'));
@@ -173,9 +175,9 @@ class HomeController extends Controller
 
         $latestRegisteredUser = User::where('referral_id', $this->user->id)->latest()->first();
 
+        $points = ProductOrder::select()->where('customer_id', $this->user->id)->sum('point');
 
-
-        return view($this->theme . 'user.dashboard', $data, compact('monthly', 'latestRegisteredUser'));
+        return view($this->theme . 'user.dashboard', $data, compact('monthly', 'latestRegisteredUser', 'points'));
     }
 
 
@@ -641,7 +643,7 @@ class HomeController extends Controller
             'date' => $currentDate,
         ]);
 
-        return back()->with('success', 'Plan has been Purchased Successfully');
+        return back()->with('success', 'Product has been Purchased Successfully');
     }
 
 

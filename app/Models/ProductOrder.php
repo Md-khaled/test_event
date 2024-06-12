@@ -15,7 +15,8 @@ class ProductOrder extends Model
         'quantity',
         'voucher',
         'product_id',
-        'customer_id'
+        'customer_id',
+        'point'
     ];
 
 
