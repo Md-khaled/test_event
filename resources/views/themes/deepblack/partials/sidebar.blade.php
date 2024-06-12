@@ -19,7 +19,7 @@
         <div class="wallet-box d-none d-lg-block">
             <h4>@lang('Account Balance')</h4>
             <h5> @lang('Main Balance') <span>{{ $basic->currency_symbol }}{{ @$user->balance }}</span></h5>
-            <h5 class="mb-0"> @lang('Interest Balance') <span> {{ $basic->currency_symbol }}{{ @$user->interest_balance }}</span></h5>
+            <h5 class="mb-0"> @lang('Points') <span> {{ $points }}</span></h5>
             <span class="tag">{{ $basic->currency }}</span>
         </div>
         <div class="d-flex justify-content-between mt-1">

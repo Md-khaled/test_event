@@ -18,6 +18,7 @@ use App\Models\MoneyTransfer;
 use App\Models\PayoutLog;
 use App\Models\PayoutMethod;
 use App\Models\PayoutSetting;
+use App\Models\ProductOrder;
 use App\Models\Ranking;
 use App\Models\Ticket;
 use App\Models\Transaction;
@@ -174,8 +175,9 @@ class HomeController extends Controller
         $latestRegisteredUser = User::where('referral_id', $this->user->id)->latest()->first();
 
 
+        $points = ProductOrder::select()->where('customer_id', $this->user->id)->sum('point');
 
-        return view($this->theme . 'user.dashboard', $data, compact('monthly', 'latestRegisteredUser'));
+        return view($this->theme . 'user.dashboard', $data, compact('monthly', 'latestRegisteredUser', 'points'));
     }
 
 

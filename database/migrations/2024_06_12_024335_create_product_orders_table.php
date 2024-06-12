@@ -20,6 +20,7 @@ class CreateProductOrdersTable extends Migration
             $table->string('voucher')->nullable();
             $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('customer_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('point');
             $table->timestamps();
         });
     }
