@@ -27,12 +27,16 @@ class OrderController extends Controller
             'product_id' => ['required', 'integer'],
         ]);
 
-        $data['point'] = Product::select('point')->where('id', $request->product_id)->value('point');
-
         $user = auth()->user();
         $data['customer_id'] = $user->id;
 
+        $point = Product::where('id', $request->product_id)->value('point');
+        $data['point'] = $point*($request->quantity);
+
+        // dd($point);
+
         ProductOrder::create($data);
+        // dd($data);
 
         return back()->with('success', 'Product Ordered Successfully');
 

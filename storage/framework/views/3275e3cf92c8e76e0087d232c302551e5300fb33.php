@@ -19,7 +19,7 @@
         <div class="wallet-box d-none d-lg-block">
             <h4><?php echo app('translator')->get('Account Balance'); ?></h4>
             <h5> <?php echo app('translator')->get('Main Balance'); ?> <span><?php echo e($basic->currency_symbol); ?><?php echo e(@$user->balance); ?></span></h5>
-            <h5 class="mb-0"> <?php echo app('translator')->get('Points'); ?> <span> <?php echo e($points); ?></span></h5>
+            <h5 class="mb-0"> <?php echo app('translator')->get('Points'); ?> <span> <?php echo e($points); ?> </span></h5>
             <span class="tag"><?php echo e($basic->currency); ?></span>
         </div>
         <div class="d-flex justify-content-between mt-1">
